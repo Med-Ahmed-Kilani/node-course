@@ -1,8 +1,14 @@
 const request = require("request");
 
-const url =
-  "https://api.openweathermap.org/data/2.5/weather?q=Kairouan&appid=413c499ab7f877c288f7b56b32c24e47";
+const url = "{api key}";
 
 request({ url: url, json: true }, (error, response) => {
-  console.log(response.body);
+  const weather = response.body;
+  console.log(
+    "It's currently " +
+      weather.main.temp +
+      " degree out. There is " +
+      weather.clouds.all +
+      "% change of rain."
+  );
 });
